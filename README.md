@@ -1,6 +1,6 @@
-# 🛍️ BarkedShop
+# <img src="https://slackmojis.com/emojis/16075-clothes_rack/download" width="40"/> BarkedShop
 
-> A style fashion e-commerce platform built as a team project.
+> A Shein-style fashion e-commerce platform built as a team project.
 
 ---
 
@@ -10,6 +10,32 @@
 |----------|-----|
 | Frontend | `frontend/index.html` (open in browser or deploy to Netlify/GitHub Pages) |
 | API      | `http://localhost:3000` |
+
+---
+
+## 👥 Team Members
+
+| Role | Member |
+|------|--------|
+| 🏆 Product Owner | Diego |
+| ✅ Quality Assurance | Karen |
+| 🔄 Scrum Master | Diego |
+| ⚙️ DevOps | Diego, Elisabet |
+| 🎨 Front-end Developer | Ramiro, Karen, Elisabet |
+| 🔧 Back-end Developer | Brad, Alejandra |
+
+---
+
+## 📋 Responsibilities
+
+| Member | Files / Area |
+|--------|-------------|
+| **Ramiro** | `frontend/` — UI components & pages |
+| **Elisabet** | `frontend/` — styles & responsive design |
+| **Diego** | `README.md` — documentation & project management |
+| **Alejandra** | `database/` — schema & data models |
+| **Brad** | `backend/` — API routes & server logic |
+| **Karen** | `data/`, `package.json` — sample data & project config |
 
 ---
 
@@ -69,7 +95,6 @@ barkedshop/
 
 ### Frontend (no setup needed)
 ```bash
-# Just open in your browser:
 open frontend/index.html
 ```
 
@@ -80,8 +105,6 @@ npm install
 
 # 2. Start the server
 npm start
-# or in dev mode with auto-reload:
-npm run dev
 
 # 3. Test it
 curl http://localhost:3000/api/products
@@ -142,46 +165,22 @@ The schema is in `database/schema.sql`. Tables:
 
 ---
 
-## 👥 Team Members & Commits
-
-Each team member owns a specific area. Commit your work under your section.
-
-| # | Member | Responsibility | Branch / Files |
-|---|--------|---------------|----------------|
-| 1 | **[Member 1]** | Project Lead & Home Page | `frontend/index.html`, `frontend/css/style.css` |
-| 2 | **[Member 2]** | Product Pages & Cart | `frontend/pages/`, `frontend/js/products.js` |
-| 3 | **[Member 3]** | Backend API & Routes | `backend/api/`, `backend/app.js` |
-| 4 | **[Member 4]** | Database Schema & Data | `database/schema.sql`, `data/` |
-| 5 | **[Member 5]** | Data Generation Scripts | `backend/scripts/generate_data.py` |
-| 6 | **[Member 6]** | CI/CD & DevOps | `.github/workflows/ci.yml`, `package.json`, `README.md` |
-
-### Commit Guidelines
+## 💾 Commit Guidelines
 
 ```bash
 git checkout -b feature/your-name-task
-# ... make changes ...
 git add .
-git commit -m "feat(member-X): description of what you did"
+git commit -m "feat(name): description of what you did"
 git push origin feature/your-name-task
-# Then open a Pull Request to main
 ```
 
-**Commit message format:** `feat(scope): short description`
-Examples:
-- `feat(products): add sale page with dynamic discounts`
-- `feat(db): add reviews and wishlist tables to schema`
-- `fix(cart): fix item removal bug`
-- `docs(readme): update team member table`
-
----
-
-## 📊 Data Files
-
-Sample data is available in three formats:
-
-- **JSON** — `data/json/` — used directly by the API skeleton
-- **CSV** — `data/csv/` — for spreadsheet analysis / Excel
-- **SQL** — `database/schema.sql` — for database import
+**Examples:**
+- `feat(ramiro): add women category page`
+- `feat(brad): add orders API endpoint`
+- `fix(elisabet): fix mobile navbar`
+- `docs(diego): update README`
+- `feat(karen): add sample data files`
+- `feat(alejandra): add database schema`
 
 ---
 
