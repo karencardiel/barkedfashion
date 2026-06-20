@@ -1,0 +1,13 @@
+id,name,category,price,original_price,stock,sizes,tags
+1,Floral Wrap Dress,women,19.99,39.99,45,"XS,S,M,L,XL","dress,floral,summer"
+2,Slim Fit Chino Pants,men,24.99,49.99,60,"28,30,32,34,36","pants,chino,casual"
+3,Oversized Graphic Tee,women,12.99,22.99,120,"XS,S,M,L,XL,XXL","tee,casual,graphic"
+4,Classic Oxford Shirt,men,21.99,44.99,80,"S,M,L,XL,XXL","shirt,oxford,formal"
+5,High-Waist Jogger Set,women,29.99,59.99,35,"XS,S,M,L,XL","jogger,set,sporty"
+6,Puffer Jacket,men,39.99,79.99,25,"S,M,L,XL,XXL","jacket,winter,puffer"
+7,Ribbed Mini Skirt,women,14.99,28.99,70,"XS,S,M,L","skirt,mini,trendy"
+8,Cargo Shorts,men,18.99,35.99,90,"28,30,32,34,36","shorts,cargo,summer"
+9,Boho Maxi Dress,women,27.99,54.99,40,"XS,S,M,L,XL","dress,maxi,boho"
+10,Denim Jacket,men,34.99,69.99,30,"S,M,L,XL","jacket,denim,casual"
+11,Lace-Trim Camisole,women,10.99,21.99,100,"XS,S,M,L,XL","top,lace,feminine"
+12,Knit Polo Shirt,men,17.99,34.99,75,"S,M,L,XL,XXL","polo,knit,casual"
