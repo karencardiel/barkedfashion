@@ -1,0 +1,7 @@
+[
+  {"id":1,"name":"Alice Martínez","email":"alice@example.com","role":"admin","created_at":"2025-01-10"},
+  {"id":2,"name":"Bob Johnson","email":"bob@example.com","role":"customer","created_at":"2025-02-14"},
+  {"id":3,"name":"Carol Smith","email":"carol@example.com","role":"customer","created_at":"2025-03-01"},
+  {"id":4,"name":"David Lee","email":"david@example.com","role":"customer","created_at":"2025-03-22"},
+  {"id":5,"name":"Eva Torres","email":"eva@example.com","role":"customer","created_at":"2025-04-05"}
+]

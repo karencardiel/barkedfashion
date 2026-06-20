@@ -1,0 +1,14 @@
+[
+  {"id":1,"name":"Floral Wrap Dress","category":"women","price":19.99,"original_price":39.99,"stock":45,"sizes":["XS","S","M","L","XL"],"tags":["dress","floral","summer"]},
+  {"id":2,"name":"Slim Fit Chino Pants","category":"men","price":24.99,"original_price":49.99,"stock":60,"sizes":["28","30","32","34","36"],"tags":["pants","chino","casual"]},
+  {"id":3,"name":"Oversized Graphic Tee","category":"women","price":12.99,"original_price":22.99,"stock":120,"sizes":["XS","S","M","L","XL","XXL"],"tags":["tee","casual","graphic"]},
+  {"id":4,"name":"Classic Oxford Shirt","category":"men","price":21.99,"original_price":44.99,"stock":80,"sizes":["S","M","L","XL","XXL"],"tags":["shirt","oxford","formal"]},
+  {"id":5,"name":"High-Waist Jogger Set","category":"women","price":29.99,"original_price":59.99,"stock":35,"sizes":["XS","S","M","L","XL"],"tags":["jogger","set","sporty"]},
+  {"id":6,"name":"Puffer Jacket","category":"men","price":39.99,"original_price":79.99,"stock":25,"sizes":["S","M","L","XL","XXL"],"tags":["jacket","winter","puffer"]},
+  {"id":7,"name":"Ribbed Mini Skirt","category":"women","price":14.99,"original_price":28.99,"stock":70,"sizes":["XS","S","M","L"],"tags":["skirt","mini","trendy"]},
+  {"id":8,"name":"Cargo Shorts","category":"men","price":18.99,"original_price":35.99,"stock":90,"sizes":["28","30","32","34","36"],"tags":["shorts","cargo","summer"]},
+  {"id":9,"name":"Boho Maxi Dress","category":"women","price":27.99,"original_price":54.99,"stock":40,"sizes":["XS","S","M","L","XL"],"tags":["dress","maxi","boho"]},
+  {"id":10,"name":"Denim Jacket","category":"men","price":34.99,"original_price":69.99,"stock":30,"sizes":["S","M","L","XL"],"tags":["jacket","denim","casual"]},
+  {"id":11,"name":"Lace-Trim Camisole","category":"women","price":10.99,"original_price":21.99,"stock":100,"sizes":["XS","S","M","L","XL"],"tags":["top","lace","feminine"]},
+  {"id":12,"name":"Knit Polo Shirt","category":"men","price":17.99,"original_price":34.99,"stock":75,"sizes":["S","M","L","XL","XXL"],"tags":["polo","knit","casual"]}
+]
