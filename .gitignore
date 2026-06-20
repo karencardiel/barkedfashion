@@ -7,3 +7,4 @@ data/csv/*_generated.csv
 __pycache__/
 *.pyc
 .DS_Store
+__MACOSX
