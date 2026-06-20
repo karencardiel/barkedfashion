@@ -165,25 +165,6 @@ The schema is in `database/schema.sql`. Tables:
 
 ---
 
-## 💾 Commit Guidelines
-
-```bash
-git checkout -b feature/your-name-task
-git add .
-git commit -m "feat(name): description of what you did"
-git push origin feature/your-name-task
-```
-
-**Examples:**
-- `feat(ramiro): add women category page`
-- `feat(brad): add orders API endpoint`
-- `fix(elisabet): fix mobile navbar`
-- `docs(diego): update README`
-- `feat(karen): add sample data files`
-- `feat(alejandra): add database schema`
-
----
-
 ## 🔧 Tech Stack
 
 | Layer | Technology |
