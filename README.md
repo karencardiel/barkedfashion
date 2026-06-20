@@ -1,19 +1,44 @@
 # <img src="https://slackmojis.com/emojis/93340-hawaiian-shirt/download" width="45"/> BarkedShop 
+# <img src="frontend/images/logotipo.png" width="80"/> BarkedShop
 
-> A style fashion e-commerce platform built as a team project.
+> A style fashion e-commerce platform.
 
 ---
 
-## 🌐 Live Platform
+## 🌐 Live Platform for BarkedShop
+## Live Platform
 
 | Layer    | URL |
 |----------|-----|
-| Frontend | `frontend/index.html` (open in browser or deploy to Netlify/GitHub Pages) |
+| Frontend | `frontend/index.html` (open in browser) |
 | API      | `http://localhost:3000` |
 
----
 
-## 📁 Repository Structure
+## Team Members
+
+| Role | Member |
+|------|--------|
+| 🏆 Product Owner | Diego |
+| ✅ Quality Assurance | Karen |
+| 🔄 Scrum Master | Diego |
+| ⚙️ DevOps | Diego, Elisabet |
+| 🎨 Front-end Developer | Ramiro, Karen, Elisabet |
+| 🔧 Back-end Developer | Brad, Alejandra |
+
+
+## Responsibilities
+
+| Member | Files / Area |
+|--------|-------------|
+| **Ramiro** | `frontend/` — UI components & pages |
+| **Elisabet** | `frontend/` — styles & responsive design |
+| **Diego** | `README.md` — documentation & project management |
+| **Alejandra** | `database/` — schema & data models |
+| **Brad** | `backend/` — API routes & server logic |
+| **Karen** | `data/`, `package.json` — sample data & project config |
+
+
+## Repository Structure
 
 ```
 barkedshop/
@@ -63,13 +88,11 @@ barkedshop/
 └── README.md
 ```
 
----
 
-## 🚀 How to Run Locally
+## How to Run Locally
 
 ### Frontend (no setup needed)
 ```bash
-# Just open in your browser:
 open frontend/index.html
 ```
 
@@ -80,8 +103,6 @@ npm install
 
 # 2. Start the server
 npm start
-# or in dev mode with auto-reload:
-npm run dev
 
 # 3. Test it
 curl http://localhost:3000/api/products
@@ -92,9 +113,7 @@ curl http://localhost:3000/api/products
 python3 backend/scripts/generate_data.py
 ```
 
----
-
-## 🗄️ Database
+## Database
 
 The schema is in `database/schema.sql`. Tables:
 
@@ -111,9 +130,8 @@ The schema is in `database/schema.sql`. Tables:
 | `wishlist` | Saved items per user |
 | `newsletter_subscribers` | Email subscriptions |
 
----
 
-## 🌐 API Endpoints
+## API Endpoints
 
 | Method | Route | Description |
 |--------|-------|-------------|
@@ -128,9 +146,8 @@ The schema is in `database/schema.sql`. Tables:
 | GET | `/api/reviews/:productId` | Get reviews for a product |
 | POST | `/api/reviews` | Submit a review |
 
----
 
-## ✅ Platform Features
+## Platform Features
 
 - 🛒 Shopping cart (with localStorage persistence)
 - 🔍 Real-time product search
@@ -184,7 +201,7 @@ Sample data is available in three formats:
 
 ---
 
-## 🔧 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -198,3 +215,6 @@ Sample data is available in three formats:
 ---
 
 *BarkedShop — Fashion for Everyone <img src="https://slackmojis.com/emojis/16075-clothes_rack/download" width="60"/> *
+<p align="center">
+  <img src="frontend/images/logotipo.png" width="500"/>
+</p>

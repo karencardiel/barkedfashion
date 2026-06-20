@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarkedShop — Acceso</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="../index.html" class="logo-container">
+                <img src="../images/logotipo.png" alt="BarkedShop Logo" class="logo-img">
+            </a>
+            <div class="nav-actions">
+                <a href="cart.html">Volver a la Tienda 🛒</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container auth-layout">
+        <section class="auth-card">
+            <h2>Iniciar Sesión</h2>
+            <form id="login-form">
+                <div class="form-group"><label>Correo</label><input type="email" id="login-email" required></div>
+                <div class="form-group"><label>Contraseña</label><input type="password" id="login-pass" required></div>
+                <button type="submit" class="btn-auth">Ingresar</button>
+            </form>
+        </section>
+
+        <section class="auth-card">
+            <h2>Crear Cuenta</h2>
+            <form id="register-form">
+                <div class="form-group"><label>Nombre Completo</label><input type="text" id="reg-name" required></div>
+                <div class="form-group"><label>Correo Electrónico</label><input type="email" id="reg-email" required></div>
+                <div class="form-group"><label>Contraseña</label><input type="password" id="reg-pass" required></div>
+                <button type="submit" class="btn-auth">Registrarse</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-pass').value;
+
+            const res = await fetch(`${API_BASE_URL}/users/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email, password })
+            });
+            const data = await res.json();
+            alert(data.message || data.error);
+            if(res.ok) localStorage.setItem('user_token', data.token);
+        });
+
+        document.getElementById('register-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('reg-name').value;
+            const email = document.getElementById('reg-email').value;
+            const password = document.getElementById('reg-pass').value;
+
+            const res = await fetch(`${API_BASE_URL}/users/register`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, password })
+            });
+            const data = await res.json();
+            alert(data.message || data.error);
+        });
+    </script>
+</body>
+</html>

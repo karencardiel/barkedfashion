@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarkedShop 🛍️ — Inicio</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/png" href="./images/logotipo.png">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html" class="logo-container">
+                <img src="./images/logotipo.png" alt="BarkedShop Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="pages/women.html">Mujeres</a></li>
+                <li><a href="pages/men.html">Hombres</a></li>
+                <li><a href="pages/new.html">Novedades</a></li>
+            </ul>
+            <form id="search-form" class="search-box">
+                <input type="text" id="search-input" placeholder="Buscar...">
+                <button type="submit">🔍</button>
+            </form>
+            <div class="nav-actions">
+                <a href="pages/account.html">Mi Cuenta</a>
+                <a href="pages/cart.html">🛒 (<span id="cart-counter">0</span>)</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Moda Inteligente Adaptativa</h1>
+        <p>Explora un catálogo interconectado en tiempo real con nuestra API REST.</p>
+    </section>
+
+    <main class="container">
+        <h2>Catálogo de Temporada</h2>
+        <div id="products-grid" class="products-grid"></div>
+    </main>
+
+    <script src="./js/main.js"></script>
+    <script src="./js/products.js"></script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 const express = require('express');
 const router  = express.Router();
 
-// In a real app these would query the DB. Using mock data for skeleton.
+// Carga el JSON simulado directamente de tu carpeta de datos
 const products = require('../../data/json/products.json');
 
 // GET /api/products
@@ -10,8 +10,11 @@ router.get('/', (req, res) => {
   const { category, q, limit = 20, page = 1 } = req.query;
   let result = [...products];
 
+  // Filtro por categoría (women / men)
   if (category) result = result.filter(p => p.category === category);
-  if (q)        result = result.filter(p => p.name.toLowerCase().includes(q.toLowerCase()));
+  
+  // EL BUSCADOR: Filtra comparando en minúsculas para que no importe cómo escriba el usuario
+  if (q) result = result.filter(p => p.name.toLowerCase().includes(q.toLowerCase()));
 
   const start = (page - 1) * limit;
   res.json({

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarkedShop — Tu Bolsa</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <a href="../index.html" class="logo-container">
+                <img src="../images/logotipo.png" alt="BarkedShop Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="women.html">Mujeres</a></li>
+                <li><a href="men.html">Hombres</a></li>
+                <li><a href="new.html">Novedades</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="account.html">Mi Cuenta</a>
+                <a href="cart.html" style="font-weight: bold;">🛒 (<span id="cart-counter">0</span>)</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h2>Mi Carrito</h2>
+        <div class="cart-layout">
+            <section class="cart-items-wrapper" id="cart-items-container"></section>
+            <section class="cart-summary">
+                <h3>Resumen</h3>
+                <div class="summary-row"><span>Envío estándar:</span><span style="color:green;">Gratuito</span></div>
+                <div class="summary-row summary-total"><span>Total a pagar:</span><span id="cart-total-price">$0.00</span></div>
+                <button class="btn-checkout" onclick="window.processCheckout()">Confirmar Compra</button>
+            </section>
+        </div>
+    </main>
+
+    <script src="../js/main.js"></script>
+    <script>
+        function displayCart() {
+            const wrapper = document.getElementById('cart-items-container');
+            const totalDisplay = document.getElementById('cart-total-price');
+            if(!wrapper) return;
+
+            if(cart.length === 0) {
+                wrapper.innerHTML = '<p>No tienes artículos en tu bolsa.</p>';
+                if(totalDisplay) totalDisplay.textContent = '$0.00';
+                return;
+            }
+
+            let calculatedTotal = 0;
+            wrapper.innerHTML = cart.map((item, index) => {
+                calculatedTotal += item.price * item.quantity;
+                return `
+                    <div class="cart-item">
+                        <div>
+                            <h4>${item.name}</h4>
+                            <p>Cant: ${item.quantity} x $${item.price.toFixed(2)}</p>
+                        </div>
+                        <button class="btn-remove" onclick="window.removeCartItem(${index})">Quitar</button>
+                    </div>
+                `;
+            }).join('');
+            if(totalDisplay) totalDisplay.textContent = `$${calculatedTotal.toFixed(2)}`;
+        }
+
+        window.removeCartItem = function(index) {
+            cart.splice(index, 1);
+            saveCart();
+            displayCart();
+        };
+
+        window.processCheckout = async function() {
+            if(cart.length === 0) return alert("Bolsa vacía");
+            
+            const payload = {
+                shipping_addr: "Mérida, Yucatán, México",
+                items: cart.map(i => ({ product_id: i.id, qty: i.quantity }))
+            };
+
+            try {
+                const res = await fetch(`${API_BASE_URL}/orders`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                if(res.ok) {
+                    alert(`¡Orden creada! ID de Rastreo: #${data.orderId}`);
+                    cart = [];
+                    saveCart();
+                    displayCart();
+                }
+            } catch(e) {
+                alert("Error al enviar orden.");
+            }
+        };
+
+        document.addEventListener('DOMContentLoaded', displayCart);
+    </script>
+</body>
+</html>
