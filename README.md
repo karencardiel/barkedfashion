@@ -1,4 +1,4 @@
-# <img src="frontend/images/logotipo.png" width="60"/> BarkedShop
+# <img src="frontend/images/logotipo.png" width="80"/> BarkedShop
 
 > A style fashion e-commerce platform built as a team project.
 
