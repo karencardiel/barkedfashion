@@ -321,3 +321,18 @@ header {
     cursor: pointer;
     font-weight: bold;
 }
+
+#logotipo
+/* Contenedor del logo para centrar la imagen perfectamente */
+.logo-container {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* Controla el alto de tu logotipo para que no rompa el diseño */
+.logo-img {
+    height: 40px; /* Puedes ajustar este número según el diseño de tu logo */
+    width: auto;  /* Esto mantiene la proporción original y evita que se estire */
+    display: block;
+}

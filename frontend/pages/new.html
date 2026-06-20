@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BarkedShop — Novedades y Lanzamientos</title>
+    <link rel="icon" type="image/png" href="../images/logotipo.png">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        /* --- ESTILOS EXCLUSIVOS PARA EL SCROLL DE NOVEDADES --- */
+        /* Contenedor del scroll horizontal de tarjetas */
+        .scroll-container {
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 20px 5px;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: thin; /* Para Firefox */
+        }
+
+        /* Estilizado de barra de scroll para navegadores Webkit (Chrome/Safari) */
+        .scroll-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        .scroll-container::-webkit-scrollbar-thumb {
+            background: #ccc;
+            border-radius: 4px;
+        }
+        .scroll-container::-webkit-scrollbar-thumb:hover {
+            background: #999;
+        }
+
+        /* Forzar a las tarjetas de productos a mantener su tamaño dentro del scroll */
+        .scroll-container .product-card {
+            min-width: 280px;
+            max-width: 320px;
+            flex: 0 0 auto;
+            scroll-snap-align: start;
+        }
+
+        /* Controles visuales opcionales para deslizar */
+        .scroll-hints {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .scroll-btn-hint {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a href="../index.html" class="logo-container">
+                <img src="../images/logotipo.png" alt="BarkedShop Logo" class="logo-img">
+            </a>
+            <ul class="nav-links">
+                <li><a href="women.html">Mujeres</a></li>
+                <li><a href="men.html">Hombres</a></li>
+                <li><a href="new.html" style="color: white; font-weight: bold;">Novedades</a></li>
+            </ul>
+            
+            <form id="search-form" class="search-box">
+                <input type="text" id="search-input" placeholder="Buscar novedades...">
+                <button type="submit">🔍</button>
+            </form>
+
+            <div class="nav-actions">
+                <a href="account.html">Mi Cuenta</a>
+                <a href="cart.html" class="cart-link">
+                    🛒 Carrito (<span id="cart-counter">0</span>)
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <div class="scroll-hints">
+            <div>
+                <h2>Últimos Lanzamientos ⚡</h2>
+                <p>Lo más reciente añadido a nuestra base de datos en tiempo real.</p>
+            </div>
+            <span class="scroll-btn-hint">Desliza para ver más →</span>
+        </div>
+
+        <div id="products-grid" class="scroll-container">
+            </div>
+
+    </main>
+
+    <script src="../js/main.js"></script>
+    
+    <script src="../js/products.js"></script>
+
+</body>
+</html>
