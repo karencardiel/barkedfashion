@@ -8,7 +8,7 @@
 
 | Layer    | URL |
 |----------|-----|
-| Frontend | `frontend/index.html` (open in browser or deploy to Netlify/GitHub Pages) |
+| Frontend | `frontend/index.html` (open in browser) |
 | API      | `http://localhost:3000` |
 
 ---
