@@ -4,7 +4,7 @@
 
 ---
 
-## 🌐 Live Platform
+## Live Platform
 
 | Layer    | URL |
 |----------|-----|
@@ -13,7 +13,7 @@
 
 ---
 
-## 👥 Team Members
+## Team Members
 
 | Role | Member |
 |------|--------|
@@ -26,7 +26,7 @@
 
 ---
 
-## 📋 Responsibilities
+## Responsibilities
 
 | Member | Files / Area |
 |--------|-------------|
@@ -39,7 +39,7 @@
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 barkedshop/
@@ -91,7 +91,7 @@ barkedshop/
 
 ---
 
-## 🚀 How to Run Locally
+## How to Run Locally
 
 ### Frontend (no setup needed)
 ```bash
@@ -115,9 +115,7 @@ curl http://localhost:3000/api/products
 python3 backend/scripts/generate_data.py
 ```
 
----
-
-## 🗄️ Database
+## Database
 
 The schema is in `database/schema.sql`. Tables:
 
@@ -134,9 +132,8 @@ The schema is in `database/schema.sql`. Tables:
 | `wishlist` | Saved items per user |
 | `newsletter_subscribers` | Email subscriptions |
 
----
 
-## 🌐 API Endpoints
+## API Endpoints
 
 | Method | Route | Description |
 |--------|-------|-------------|
@@ -151,9 +148,8 @@ The schema is in `database/schema.sql`. Tables:
 | GET | `/api/reviews/:productId` | Get reviews for a product |
 | POST | `/api/reviews` | Submit a review |
 
----
 
-## ✅ Platform Features
+## Platform Features
 
 - 🛒 Shopping cart (with localStorage persistence)
 - 🔍 Real-time product search
@@ -163,9 +159,8 @@ The schema is in `database/schema.sql`. Tables:
 - 📱 Fully responsive / mobile-friendly
 - 🔄 GitHub Actions CI/CD pipeline
 
----
 
-## 🔧 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |-------|-----------|
@@ -176,6 +171,7 @@ The schema is in `database/schema.sql`. Tables:
 | CI/CD | GitHub Actions |
 | Fonts | Google Fonts (Inter + Playfair Display) |
 
----
 
-*BarkedShop — Fashion for Everyone 🛍️*
+<p align="center">
+  <img src="frontend/images/logotipo.png" width="500"/>
+</p>
