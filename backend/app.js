@@ -15,6 +15,7 @@ app.use('/api/users',     require('./api/users'));
 app.use('/api/orders',    require('./api/orders'));
 app.use('/api/cart',      require('./api/cart'));
 app.use('/api/reviews',   require('./api/reviews'));
+app.use('/api/analytics', require('./api/analytics'))
 
 // Health check
 app.get('/', (req, res) => res.json({ status: 'BarkedShop API running 🛍️' }));
