@@ -1,45 +1,19 @@
-# <img src="https://slackmojis.com/emojis/93340-hawaiian-shirt/download" width="40"/> BarkedShop
+# <img src="frontend/images/logotipo.png" width="80"/> BarkedShop
 
-> A Shein-style fashion e-commerce platform built as a team project.
+> A style fashion e-commerce platform.
 
 ---
 
-## 🌐 Live Platform
+## Live Platform
 
 | Layer    | URL |
 |----------|-----|
-| Frontend | `frontend/index.html` (open in browser or deploy to Netlify/GitHub Pages) |
+| Frontend | `frontend/index.html` (open in browser) |
 | API      | `http://localhost:3000` |
 
 ---
 
-## 👥 Team Members
-
-| Role | Member |
-|------|--------|
-| 🏆 Product Owner | Diego |
-| ✅ Quality Assurance | Karen |
-| 🔄 Scrum Master | Diego |
-| ⚙️ DevOps | Diego, Elisabet |
-| 🎨 Front-end Developer | Ramiro, Karen, Elisabet |
-| 🔧 Back-end Developer | Brad, Alejandra |
-
----
-
-## 📋 Responsibilities
-
-| Member | Files / Area |
-|--------|-------------|
-| **Ramiro** | `frontend/` — UI components & pages |
-| **Elisabet** | `frontend/` — styles & responsive design |
-| **Diego** | `README.md` — documentation & project management |
-| **Alejandra** | `database/` — schema & data models |
-| **Brad** | `backend/` — API routes & server logic |
-| **Karen** | `data/`, `package.json` — sample data & project config |
-
----
-
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 barkedshop/
@@ -85,17 +59,26 @@ barkedshop/
 │   └── workflows/
 │       └── ci.yml          # GitHub Actions CI/CD pipeline
 ├── package.json
+├── package-lock.json
 ├── .gitignore
 └── README.md
 ```
-
 ---
 
-## 🚀 How to Run Locally
+## How to Run Locally
 
 ### Frontend (no setup needed)
 ```bash
 open frontend/index.html
+```
+
+### Database
+```bash
+# 1. Create the database
+mysql -u root -p -e "CREATE DATABASE barkedshop;"
+
+# 2. Run the schema
+mysql -u root -p barkedshop < database/schema.sql
 ```
 
 ### Backend API
@@ -110,92 +93,28 @@ npm start
 curl http://localhost:3000/api/products
 ```
 
-### Generate Sample Data
+### Generate Sample Data (optional)
 ```bash
 python3 backend/scripts/generate_data.py
 ```
 
 ---
 
-## 🗄️ Database
+## Team Members
 
-The schema is in `database/schema.sql`. Tables:
+| Member | Role | Files / Area |
+|--------|------|-------------|
+| **Diego** | Product Owner · Scrum Master · DevOps | `README.md` — documentation and project management |
+| **Karen** | Quality Assurance · Front-end Developer | `data/`, `package.json` — sample data andproject config |
+| **Elisabet** | DevOps · Front-end Developer | `frontend/` — styles and responsive design |
+| **Ramiro** | Front-end Developer | `frontend/` — UI components and pages |
+| **Alejandra** | Back-end Developer | `database/` — schema and data models |
+| **Brad** | Back-end Developer | `backend/` — API routes and server logic |
 
-| Table | Description |
-|-------|-------------|
-| `users` | Customers and admins |
-| `categories` | Women, Men, New In, Sale |
-| `products` | All clothing items |
-| `product_sizes` | Size variants per product |
-| `orders` | Customer orders |
-| `order_items` | Line items per order |
-| `cart_items` | Active cart (server-side) |
-| `reviews` | Product ratings and comments |
-| `wishlist` | Saved items per user |
-| `newsletter_subscribers` | Email subscriptions |
 
 ---
+<p align="center">
+  <img src="frontend/images/logotipo.png" width="500"/>
+</p>
 
-## 🌐 API Endpoints
-
-| Method | Route | Description |
-|--------|-------|-------------|
-| GET | `/api/products` | All products (supports `?category=women&q=dress`) |
-| GET | `/api/products/:id` | Single product |
-| POST | `/api/users/register` | Register new user |
-| POST | `/api/users/login` | Login, returns token |
-| GET | `/api/orders` | User's order history |
-| POST | `/api/orders` | Place a new order |
-| GET | `/api/cart` | View cart |
-| POST | `/api/cart/add` | Add item to cart |
-| GET | `/api/reviews/:productId` | Get reviews for a product |
-| POST | `/api/reviews` | Submit a review |
-
----
-
-## ✅ Platform Features
-
-- 🛒 Shopping cart (with localStorage persistence)
-- 🔍 Real-time product search
-- 👗 Category pages: Women, Men, New In, Sale
-- ❓ FAQ accordion
-- 💌 Newsletter subscription
-- 📱 Fully responsive / mobile-friendly
-- 🔄 GitHub Actions CI/CD pipeline
-
----
-
-## 💾 Commit Guidelines
-
-```bash
-git checkout -b feature/your-name-task
-git add .
-git commit -m "feat(name): description of what you did"
-git push origin feature/your-name-task
-```
-
-**Examples:**
-- `feat(ramiro): add women category page`
-- `feat(brad): add orders API endpoint`
-- `fix(elisabet): fix mobile navbar`
-- `docs(diego): update README`
-- `feat(karen): add sample data files`
-- `feat(alejandra): add database schema`
-
----
-
-## 🔧 Tech Stack
-
-| Layer | Technology |
-|-------|-----------|
-| Frontend | HTML5, CSS3, Vanilla JS |
-| Backend | Node.js, Express |
-| Database | MySQL / PostgreSQL |
-| Data | JSON, CSV |
-| CI/CD | GitHub Actions |
-| Fonts | Google Fonts (Inter + Playfair Display) |
-
----
-
-*BarkedShop — Fashion for Everyone 🛍️*
 
