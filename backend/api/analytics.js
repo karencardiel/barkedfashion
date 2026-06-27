@@ -33,7 +33,13 @@ router.post('/', async (req, res) => {
                 clicks_favorite,
                 clicks_add_to_cart,
                 clicks_search,
-                clicks_navigation
+                clicks_navigation,
+
+                promo_clicks_count,
+                promo_clicks_list,
+                cart_after_promo_count,
+                cart_after_promo_list,
+                search_after_promo_count
             ) VALUES (
                 ${m.sessionId},
                 ${m.timestamp},
@@ -58,7 +64,13 @@ router.post('/', async (req, res) => {
                 ${m.clicksBreakdown?.favorite || 0},
                 ${m.clicksBreakdown?.addToCart || 0},
                 ${m.clicksBreakdown?.search || 0},
-                ${m.clicksBreakdown?.navigation || 0}
+                ${m.clicksBreakdown?.navigation || 0},
+
+                ${m.promoClicksCount || 0},
+                ${JSON.stringify(m.promoClicksList || [])},
+                ${m.cartAfterPromoCount || 0},
+                ${JSON.stringify(m.cartAfterPromoList || [])},
+                ${m.searchAfterPromoCount || 0}
             )
         `;
 

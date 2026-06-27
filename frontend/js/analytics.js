@@ -22,7 +22,12 @@ const sessionAnalytics = {
     clicks: {
         total: 0, addToCart: 0, favorite: 0,
         search: 0, recommendation: 0, navigation: 0
-    }
+    },
+
+    // P4: tracking de promociones
+    promoClicks: [],      // { productId, productName, hasDiscount, timestamp }
+    cartAfterPromo: [],   // { productId, productName, secondsAfterPromo }
+    searchAfterPromo: 0   // búsquedas realizadas tras un clic en producto con oferta
 };
 
 // ─────────────────────────────────────────────
@@ -72,6 +77,39 @@ function trackProductHover() {
         }
     });
 }
+
+// ─────────────────────────────────────────────
+// P4: hook que main.js llama al agregar al carrito
+// ─────────────────────────────────────────────
+window._trackPromoClick = function(productId, productName) {
+    sessionAnalytics.promoClicks.push({
+        productId:   String(productId),
+        productName: productName,
+        timestamp:   Date.now()
+    });
+};
+
+window._trackCartAfterPromo = function(productId, productName) {
+    // Buscar si hubo un clic de promo reciente para este producto (últimos 5 min)
+    const WINDOW_MS = 5 * 60 * 1000;
+    const promoEvent = sessionAnalytics.promoClicks
+        .filter(e => e.productId === String(productId))
+        .sort((a, b) => b.timestamp - a.timestamp)[0];
+
+    if (promoEvent && (Date.now() - promoEvent.timestamp) <= WINDOW_MS) {
+        sessionAnalytics.cartAfterPromo.push({
+            productId:          String(productId),
+            productName:        productName,
+            secondsAfterPromo:  Math.round((Date.now() - promoEvent.timestamp) / 1000)
+        });
+    }
+};
+
+window._trackSearchAfterPromo = function() {
+    if (sessionAnalytics.promoClicks.length > 0) {
+        sessionAnalytics.searchAfterPromo++;
+    }
+};
 
 // ─────────────────────────────────────────────
 // P2: hook que main.js llama al toglear favorito
@@ -148,7 +186,14 @@ function sendAnalyticsData() {
         productsViewedTimers: sessionAnalytics.productTimers,
 
         // Clics — P6
-        clicksBreakdown: sessionAnalytics.clicks
+        clicksBreakdown: sessionAnalytics.clicks,
+
+        // Promociones — P4
+        promoClicksCount:       sessionAnalytics.promoClicks.length,
+        promoClicksList:        sessionAnalytics.promoClicks,
+        cartAfterPromoCount:    sessionAnalytics.cartAfterPromo.length,
+        cartAfterPromoList:     sessionAnalytics.cartAfterPromo,
+        searchAfterPromoCount:  sessionAnalytics.searchAfterPromo
     };
 
     const baseUrl = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')

@@ -107,6 +107,39 @@ CREATE TABLE IF NOT EXISTS analytics (
     duration_seconds      INT,
     pages_count           INT,
     search_queries_count  INT,
+
+    -- Identidad de usuario (P3)
+    user_id               VARCHAR(80),
+    session_count         INT DEFAULT 1,
+    first_visit           TIMESTAMP,
+    is_returning_user     BOOLEAN DEFAULT FALSE,
+
+    -- Categorías exploradas (P1)
+    categories_count      INT DEFAULT 0,
+    categories_list       JSONB DEFAULT '[]',
+
+    -- Favoritos y tiempos por producto (P2)
+    favorites_added_count INT DEFAULT 0,
+    favorites_added_list  JSONB DEFAULT '[]',
+    products_viewed_json  JSONB DEFAULT '{}',
+
+    -- Búsqueda (P5)
+    used_search           VARCHAR(5) DEFAULT 'No',
+
+    -- Clics generales (P6)
+    clicks_total          INT DEFAULT 0,
+    clicks_favorite       INT DEFAULT 0,
+    clicks_add_to_cart    INT DEFAULT 0,
+    clicks_search         INT DEFAULT 0,
+    clicks_navigation     INT DEFAULT 0,
+
+    -- Promociones (P4)
+    promo_clicks_count       INT DEFAULT 0,
+    promo_clicks_list        JSONB DEFAULT '[]',
+    cart_after_promo_count   INT DEFAULT 0,
+    cart_after_promo_list    JSONB DEFAULT '[]',
+    search_after_promo_count INT DEFAULT 0,
+
     created_at            TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

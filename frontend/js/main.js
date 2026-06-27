@@ -77,6 +77,8 @@ function addToCart(product, quantity = 1) {
         cart.push({ ...product, quantity });
     }
     saveCart();
+    // P4: registrar si el producto tenía oferta y si hubo un clic de promo previo
+    if (window._trackCartAfterPromo) window._trackCartAfterPromo(product.id, product.name);
     alert(`¡${product.name} fue añadido al carrito!`);
 }
 
@@ -104,9 +106,15 @@ function createProductCard(product) {
     return `
         <div class="product-card" data-id="${product.id}" data-product="${productDataAttr}">
             <div class="product-image">
-                <span class="badge ${product.stock === 0 ? 'out-of-stock' : (hasDiscount ? 'offer' : '')}">
-                    ${product.stock === 0 ? 'Agotado' : (hasDiscount ? 'Oferta' : 'Nuevo')}
-                </span>
+                ${product.stock === 0
+                    ? `<span class="badge out-of-stock">Agotado</span>`
+                    : hasDiscount
+                        ? `<span class="badge offer" style="cursor:pointer"
+                             onclick="window._trackPromoClick && window._trackPromoClick(${product.id}, ${JSON.stringify(product.name)})">
+                             Oferta
+                           </span>`
+                        : `<span class="badge">Nuevo</span>`
+                }
                 <button
                     class="btn-favorite ${alreadyFav ? 'favorited' : ''}"
                     title="${alreadyFav ? 'Quitar de favoritos' : 'Agregar a favoritos'}"
@@ -150,6 +158,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (searchForm) {
         searchForm.addEventListener('submit', (e) => {
             e.preventDefault();
+            // P4: registrar búsqueda realizada después de un clic en promoción
+            if (window._trackSearchAfterPromo) window._trackSearchAfterPromo();
             const query = document.getElementById('search-input').value.trim();
             if (!query) return;
             const isInPagesFolder = window.location.pathname.includes('/pages/');
