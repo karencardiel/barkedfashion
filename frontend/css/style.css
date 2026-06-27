@@ -336,3 +336,33 @@ header {
     width: auto;  /* Esto mantiene la proporción original y evita que se estire */
     display: block;
 }
+
+/* BotÃ³n de favoritos en la card de producto */
+.btn-favorite {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255, 255, 255, 0.85);
+    border: none;
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s, transform 0.15s;
+    z-index: 2;
+    line-height: 1;
+}
+
+.btn-favorite:hover {
+    color: #ff5a5f;
+    transform: scale(1.15);
+}
+
+.btn-favorite.favorited {
+    color: #ff5a5f;
+}
