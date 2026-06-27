@@ -37,33 +37,46 @@
         </div>
     </main>
 
+    <!-- main.js PRIMERO: define cart, saveCart, API_BASE_URL -->
+    <script src="../js/main.js"></script>
+    <script src="../js/analytics.js"></script>
 
+    <!-- Lógica del carrito DESPUÉS de que main.js ya cargó -->
     <script>
         function displayCart() {
             const wrapper = document.getElementById('cart-items-container');
             const totalDisplay = document.getElementById('cart-total-price');
-            if(!wrapper) return;
+            if (!wrapper) return;
 
-            if(cart.length === 0) {
-                wrapper.innerHTML = '<p>No tienes artículos en tu bolsa.</p>';
-                if(totalDisplay) totalDisplay.textContent = '$0.00';
+            if (cart.length === 0) {
+                wrapper.innerHTML = '<p style="padding:1rem;">No tienes artículos en tu bolsa.</p>';
+                if (totalDisplay) totalDisplay.textContent = '$0.00';
                 return;
             }
 
-            let calculatedTotal = 0;
+            let total = 0;
             wrapper.innerHTML = cart.map((item, index) => {
-                calculatedTotal += item.price * item.quantity;
+                const price = Number(item.price);
+                total += price * item.quantity;
+                const imageUrl = item.image_url && item.image_url.trim() !== ''
+                    ? item.image_url
+                    : `https://placehold.co/80x90?text=${encodeURIComponent(item.name)}`;
                 return `
                     <div class="cart-item">
-                        <div>
-                            <h4>${item.name}</h4>
-                            <p>Cant: ${item.quantity} x $${item.price.toFixed(2)}</p>
+                        <img src="${imageUrl}" alt="${item.name}"
+                             style="width:80px;height:90px;object-fit:cover;border-radius:6px;"
+                             onerror="this.src='https://placehold.co/80x90?text=Barked'">
+                        <div style="flex:1;padding:0 1rem;">
+                            <h4 style="margin:0 0 .25rem;">${item.name}</h4>
+                            <p style="margin:0;color:#666;">Cantidad: ${item.quantity} × $${price.toFixed(2)}</p>
+                            <p style="margin:.25rem 0 0;font-weight:600;">$${(price * item.quantity).toFixed(2)}</p>
                         </div>
                         <button class="btn-remove" onclick="window.removeCartItem(${index})">Quitar</button>
                     </div>
                 `;
             }).join('');
-            if(totalDisplay) totalDisplay.textContent = `$${calculatedTotal.toFixed(2)}`;
+
+            if (totalDisplay) totalDisplay.textContent = `$${total.toFixed(2)}`;
         }
 
         window.removeCartItem = function(index) {
@@ -73,10 +86,10 @@
         };
 
         window.processCheckout = async function() {
-            if(cart.length === 0) return alert("Bolsa vacía");
-            
+            if (cart.length === 0) return alert('Tu bolsa está vacía.');
+
             const payload = {
-                shipping_addr: "Mérida, Yucatán, México",
+                shipping_addr: 'Mérida, Yucatán, México',
                 items: cart.map(i => ({ product_id: i.id, qty: i.quantity }))
             };
 
@@ -87,22 +100,21 @@
                     body: JSON.stringify(payload)
                 });
                 const data = await res.json();
-                if(res.ok) {
-                    alert(`¡Orden creada! ID de Rastreo: #${data.orderId}`);
+                if (res.ok) {
+                    alert(`¡Orden confirmada! ID de rastreo: #${data.orderId}`);
                     cart = [];
                     saveCart();
                     displayCart();
+                } else {
+                    alert('Hubo un problema al procesar tu orden. Intenta de nuevo.');
                 }
-            } catch(e) {
-                alert("Error al enviar orden.");
+            } catch (e) {
+                alert('Error de conexión al confirmar la orden.');
             }
         };
 
+        // displayCart corre después de que main.js ya definió `cart`
         document.addEventListener('DOMContentLoaded', displayCart);
     </script>
-
-    <script src="../js/main.js"></script>
-    <script src="../js/analytics.js"></script> 
-    <script src="../js/products.js"></script>
 </body>
 </html>
